@@ -3,7 +3,7 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { Button } from "@/components/ui/Button";
-import { NavLink } from "@/components/ui/Navigation";
+import { NavLink, NAV_ICON_BUTTON_BASE, NAV_FOCUS } from "@/components/ui/Navigation";
 
 export interface SideNavBarProps {
   activePath: string;
@@ -125,7 +125,7 @@ export function SideNavBar({
       aria-label="Primary sidebar"
     >
       <div className="h-16 px-4 border-b border-border-default flex items-center justify-between">
-        <Link href="/dashboard" className="flex items-center gap-3">
+        <Link href="/dashboard" className={`flex items-center gap-3 ${NAV_FOCUS} rounded-lg`}>
           <span className="w-8 h-8 rounded-lg bg-gold-muted border border-gold/30 flex items-center justify-center text-gold">
             <svg
               className="w-4 h-4"
@@ -145,7 +145,7 @@ export function SideNavBar({
           <button
             type="button"
             onClick={onClose}
-            className="lg:hidden w-8 h-8 rounded-lg flex items-center justify-center text-text-secondary hover:text-text-primary hover:bg-surface-2 transition-all"
+            className={`lg:hidden w-8 h-8 rounded-lg ${NAV_ICON_BUTTON_BASE}`}
             aria-label="Close menu"
           >
             <svg className="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">

@@ -8,7 +8,7 @@ import { useToast } from "@/hooks/useToast";
 import { api, ApiError, TradeResponse } from "@/lib/api";
 import { Skeleton } from "@/components/ui/Skeleton";
 import { Button } from "@/components/ui/Button";
-import { NavButton } from "@/components/ui/Navigation";
+import { NavButton, NAV_FOCUS } from "@/components/ui/Navigation";
 import { VirtualizedList } from "@/components/ui/VirtualizedList";
 
 type TradeStatus = "all" | "active" | "pending" | "completed" | "disputed";
@@ -149,28 +149,28 @@ export default function TradesPage() {
           <button
             type="button"
             onClick={() => addToast({ type: "success", title: "Success", message: "Trade completed successfully!" })}
-            className="px-3 py-1.5 rounded-md bg-status-success/10 border border-status-success/30 text-status-success text-xs font-medium hover:bg-status-success/20 transition-colors"
+            className={`px-3 py-1.5 rounded-md bg-status-success/10 border border-status-success/30 text-status-success text-xs font-medium hover:bg-status-success/20 transition-colors ${NAV_FOCUS}`}
           >
             Success
           </button>
           <button
             type="button"
             onClick={() => addToast({ type: "error", title: "Error", message: "Failed to complete trade." })}
-            className="px-3 py-1.5 rounded-md bg-status-danger/10 border border-status-danger/30 text-status-danger text-xs font-medium hover:bg-status-danger/20 transition-colors"
+            className={`px-3 py-1.5 rounded-md bg-status-danger/10 border border-status-danger/30 text-status-danger text-xs font-medium hover:bg-status-danger/20 transition-colors ${NAV_FOCUS}`}
           >
             Error
           </button>
           <button
             type="button"
             onClick={() => addToast({ type: "warning", title: "Warning", message: "Trade is disputed." })}
-            className="px-3 py-1.5 rounded-md bg-status-warning/10 border border-status-warning/30 text-status-warning text-xs font-medium hover:bg-status-warning/20 transition-colors"
+            className={`px-3 py-1.5 rounded-md bg-status-warning/10 border border-status-warning/30 text-status-warning text-xs font-medium hover:bg-status-warning/20 transition-colors ${NAV_FOCUS}`}
           >
             Warning
           </button>
           <button
             type="button"
             onClick={() => addToast({ type: "info", title: "Info", message: "New message received." })}
-            className="px-3 py-1.5 rounded-md bg-status-info/10 border border-status-info/30 text-status-info text-xs font-medium hover:bg-status-info/20 transition-colors"
+            className={`px-3 py-1.5 rounded-md bg-status-info/10 border border-status-info/30 text-status-info text-xs font-medium hover:bg-status-info/20 transition-colors ${NAV_FOCUS}`}
           >
             Info
           </button>
@@ -326,16 +326,18 @@ export default function TradesPage() {
               </span>
               <div className="flex gap-2">
                 <button
+                  type="button"
                   onClick={() => setPage((p) => Math.max(1, p - 1))}
                   disabled={page === 1}
-                  className="px-3 py-1.5 rounded-md border border-border-default hover:border-border-hover disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+                  className={`px-3 py-1.5 rounded-md border border-border-default hover:text-text-primary hover:bg-surface-2/60 disabled:opacity-40 disabled:cursor-not-allowed transition-colors ${NAV_FOCUS}`}
                 >
                   Previous
                 </button>
                 <button
+                  type="button"
                   onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
                   disabled={page === totalPages}
-                  className="px-3 py-1.5 rounded-md border border-border-default hover:border-border-hover disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+                  className={`px-3 py-1.5 rounded-md border border-border-default hover:text-text-primary hover:bg-surface-2/60 disabled:opacity-40 disabled:cursor-not-allowed transition-colors ${NAV_FOCUS}`}
                 >
                   Next
                 </button>

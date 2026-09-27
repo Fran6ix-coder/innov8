@@ -3,11 +3,15 @@
 import Link from "next/link";
 import type { ReactNode, ButtonHTMLAttributes } from "react";
 
+export const NAV_FOCUS =
+  "focus-visible:outline-2 focus-visible:outline-gold focus-visible:outline-offset-2";
 export const NAV_ITEM_BASE =
-  "rounded-lg px-3 py-2 text-sm font-medium transition-colors focus-visible:outline-2 focus-visible:outline-gold focus-visible:outline-offset-2";
+  `rounded-lg px-3 py-2 text-sm font-medium transition-colors ${NAV_FOCUS}`;
 export const NAV_ITEM_ACTIVE = "bg-surface-2 text-gold shadow-elev-1";
 export const NAV_ITEM_INACTIVE =
   "text-text-secondary hover:text-text-primary hover:bg-surface-2/60";
+export const NAV_ICON_BUTTON_BASE =
+  `flex items-center justify-center text-text-secondary transition-colors hover:text-text-primary hover:bg-surface-2/60 ${NAV_FOCUS}`;
 
 export interface NavLinkProps {
   href: string;
